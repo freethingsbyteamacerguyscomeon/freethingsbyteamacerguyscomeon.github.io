@@ -67,10 +67,10 @@
         <div class="sm-container">
             <div class="receipt-box">
                 <div class="user-flex flex">
-                    <img src="" alt="" class="user-img">
+                    <img src="assets/images/person.png" alt="" class="user-img">
                     <div class="details">
                         <div class="name" id="recipientName">Jina Abdullah</div>
-                        <div class="username" id="recipientUsername">@jinaabdullah</div>
+<!--                         <div class="username" id="recipientUsername">@jinaabdullah</div> -->
                     </div>
                 </div>
                 <div class="mt-30 flex align-center justify-center pay-amt">
@@ -92,7 +92,7 @@
     <div id="test-modal" class="mfp-hide white-popup-block">
         <div class="pop-content">
             <img src="assets/images/tick.svg" alt="" class="icon">
-            <h3 id="popupTitle">You've donated $ 50000 to Negau</h3>
+            <h3 id="popupTitle">You've donated $ <span id="paymentAmount">50000</span> to <span id="popupRecipient">Negau</span></h3>
             <p id="popupText">Transaction will be made in a few minutes. <br> It may take a few minutes.</p>
             <div class="mt-30"><a class="popup-modal-dismiss" href="#">Return to main page</a></div>
         </div>
@@ -133,7 +133,6 @@
         </div>
     </footer>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/script.js"></script>
@@ -146,9 +145,9 @@
 
             // Populate the confirmation content with user input and payment amount
             document.querySelector("#recipientName").textContent = userInput;
-            document.querySelector("#recipientUsername").textContent = userInput;
-            document.querySelector("#popupTitle").textContent = `You've donated $ ${paymentAmount} to ${userInput}`;
-            document.querySelector("#popupText").textContent = "Transaction will be made in a few minutes. It may take a few minutes.";
+            document.querySelector("#recipientUsername").textContent = "@" + userInput;
+            document.querySelector("#popupRecipient").textContent = userInput;
+            document.querySelector("#popupAmount").textContent = paymentAmount;
         }
     </script>
 </body>
