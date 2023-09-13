@@ -69,6 +69,7 @@
                 <img src="assets/images/person.png" alt="" class="user-img">
                 <div class="details">
                     <div class="name" id="recipientName">Jina Abdullah</div>
+                    <div class="username" id="recipientUsername"></div>
                 </div>
             </div>
             <div class="mt-30 flex align-center justify-center pay-amt">
@@ -90,7 +91,7 @@
 <div id="test-modal" class="mfp-hide white-popup-block">
     <div class="pop-content">
         <img src="assets/images/tick.svg" alt="" class="icon">
-        <h3 id="popupTitle">You've donated $<span id="popupAmount">50000</span> to <span id="popupRecipient">Negau</span></h3>
+        <h3 id="popupTitle">You've donated $ <span id="popupAmount">50000</span> to <span id="popupRecipient">Negau</span></h3>
         <p id="popupText">Transaction will be made in a few minutes. <br> It may take a few minutes.</p>
         <div class="mt-30"><a class="popup-modal-dismiss" href="#">Return to main page</a></div>
     </div>
@@ -139,13 +140,13 @@
     // JavaScript code for handling section switching and populating confirmation content
     function populateConfirmation() {
         const userInput = document.getElementById("userInput").value;
-        const paymentAmount = parseFloat(document.getElementById("paymentAmount").value);
+        const paymentAmount = document.querySelector('.price-input').value;
 
         // Populate the confirmation content with user input and payment amount
-        document.getElementById("recipientName").textContent = userInput;
-        document.getElementById("popupRecipient").textContent = userInput;
-        const confirmationText = `You've donated $${paymentAmount.toFixed(2)} to ${userInput}`;
-        document.getElementById("popupTitle").textContent = confirmationText;
+        document.querySelector("#recipientName").textContent = userInput;
+        document.querySelector("#recipientUsername").textContent = "@" + userInput;
+        document.querySelector("#popupRecipient").textContent = userInput;
+        document.querySelector("#popupAmount").textContent = paymentAmount;
     }
 </script>
 </body>
