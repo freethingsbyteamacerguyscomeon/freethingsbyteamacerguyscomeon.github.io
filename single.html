@@ -6,6 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Add your additional CSS styles here */
+    </style>
 </head>
 <body>
 
@@ -69,11 +72,11 @@
                 <img src="assets/images/person.png" alt="" class="user-img">
                 <div class="details">
                     <div class="name" id="recipientName">Jina Abdullah</div>
-                    <div class="username" id="recipientUsername"></div>
+                    <!-- <div class="username" id="recipientUsername">@jinaabdullah</div> -->
                 </div>
             </div>
             <div class="mt-30 flex align-center justify-center pay-amt">
-                <input type="number" value="00" class="price-input" id="paymentAmount">
+                <input type="number" value="00.00" class="price-input" id="paymentAmount">
             </div>
             <div class="txt-center secondary mt-30 font-18 fw-700">
                 USD
@@ -82,7 +85,7 @@
         <div class="ending-box txt-center">
             <p>Eligible purchases are covered by <a href="#">PayPal Buyer Protection</a></p>
             <p>For more information please read our <a href="#">user agreement.</a></p>
-            <div><a href="#test-modal" class="popup-modal mt-20 next-btn">Continue</a></div>
+            <div><a href="#test-modal" class="popup-modal mt-20 next-btn" onclick="displayPaymentAmount()">Continue</a></div>
             <div><button class="mt-20 cancel">Cancel</button></div>
         </div>
     </div>
@@ -109,7 +112,7 @@
                 <ul class="footer-list flex gap-20 align-center">
                     <li><a href="#" title="Help">Help</a></li>
                     <li><a href="#" title="Contact Us">Contact Us</a></li>
-                    <li><a href="#" title="Securit">Security</a></li>
+                    <li><a href="#" title="Security">Security</a></li>
                 </ul>
             </div>
         </div>
@@ -135,9 +138,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script src="assets/js/jquery.magnific-popup.js"></script>
 <script src="assets/js/script.js"></script>
-
 <script>
-    // JavaScript code for handling section switching and populating confirmation content
+    // JavaScript code for handling section switching and displaying payment amount
     function populateConfirmation() {
         const userInput = document.getElementById("userInput").value;
         const paymentAmount = document.querySelector('.price-input').value;
@@ -145,10 +147,12 @@
         // Populate the confirmation content with user input and payment amount
         document.querySelector("#recipientName").textContent = userInput;
         document.querySelector("#recipientUsername").textContent = "@" + userInput;
+
+        // Update the recipient name in the popup section
         document.querySelector("#popupRecipient").textContent = userInput;
-        document.querySelector("#popupAmount").textContent = paymentAmount;
     }
-     function displayPaymentAmount() {
+
+    function displayPaymentAmount() {
         const paymentAmount = document.querySelector('.price-input').value;
         document.querySelector("#popupAmount").textContent = paymentAmount;
     }
