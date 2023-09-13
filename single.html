@@ -148,6 +148,10 @@
         document.querySelector("#popupRecipient").textContent = userInput;
         document.querySelector("#popupAmount").textContent = paymentAmount;
     }
+     function displayPaymentAmount() {
+        const paymentAmount = document.querySelector('.price-input').value;
+        document.querySelector("#popupAmount").textContent = paymentAmount;
+    }
 </script>
 </body>
 </html>
